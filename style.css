@@ -40,13 +40,16 @@ body {
     background: #218838;
   }
   
-  #message {
+  button:active {
+    transform: scale(0.95);
+    background-color: #218838;
+  }
+  
+  #message, #balanceMessage {
     margin-top: 10px;
     color: #333;
   }
-
-
-
-
-
-
+  
+  #balanceSection {
+    display: none; /* Hidden by default */
+  }
