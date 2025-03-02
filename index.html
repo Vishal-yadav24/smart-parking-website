@@ -8,8 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <!-- Registration Section -->
-    <div id="registrationSection">
+    <!-- Login Section -->
+    <div id="loginSection">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <button onclick="loginUser()">Login</button>
+      <p id="loginMessage"></p>
+    </div>
+
+    <!-- Registration Section (Hidden by Default) -->
+    <div id="registrationSection" style="display: none;">
       <h2>User Registration</h2>
       <input type="text" id="carNumber" placeholder="Car Number">
       <input type="text" id="ownerName" placeholder="Owner Name">
