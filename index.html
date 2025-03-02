@@ -8,17 +8,37 @@
 </head>
 <body>
   <div class="container">
-    <h2>User Registration</h2>
-    <input type="text" id="carNumber" placeholder="Car Number">
-    <input type="text" id="ownerName" placeholder="Owner Name">
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <input type="number" id="balance" placeholder="Initial Balance">
-    <button onclick="registerUser()">Register</button>
-    <p id="message"></p>
+    <!-- Registration Section -->
+    <div id="registrationSection">
+      <h2>User Registration</h2>
+      <input type="text" id="carNumber" placeholder="Car Number">
+      <input type="text" id="ownerName" placeholder="Owner Name">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <input type="number" id="balance" placeholder="Initial Balance">
+      <button onclick="registerUser()">Register</button>
+      <p id="message"></p>
+    </div>
+
+    <!-- Balance Management Section (Hidden by Default) -->
+    <div id="balanceSection" style="display: none;">
+      <h2>Balance Management</h2>
+      <p>Your current balance: <span id="currentBalance">0</span></p>
+      <input type="number" id="addBalance" placeholder="Amount to Add">
+      <button onclick="addMoney()">Add Money</button>
+      <p id="balanceMessage"></p>
+    </div>
   </div>
 
+  <!-- Load Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <!-- Load Firebase configuration -->
   <script src="firebase-config.js"></script>
+
+  <!-- Load your script -->
   <script src="script.js"></script>
 </body>
 </html>
