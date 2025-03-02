@@ -15,6 +15,7 @@
       <input type="password" id="loginPassword" placeholder="Password">
       <button onclick="loginUser()">Login</button>
       <p id="loginMessage"></p>
+      <p>Don't have an account? <a href="#" onclick="showRegistration()">Register here</a>.</p>
     </div>
 
     <!-- Registration Section (Hidden by Default) -->
@@ -27,6 +28,7 @@
       <input type="number" id="balance" placeholder="Initial Balance">
       <button onclick="registerUser()">Register</button>
       <p id="message"></p>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a>.</p>
     </div>
 
     <!-- Balance Management Section (Hidden by Default) -->
@@ -35,6 +37,7 @@
       <p>Your current balance: <span id="currentBalance">0</span></p>
       <input type="number" id="addBalance" placeholder="Amount to Add">
       <button onclick="addMoney()">Add Money</button>
+      <button onclick="logoutUser()">Logout</button>
       <p id="balanceMessage"></p>
     </div>
   </div>
