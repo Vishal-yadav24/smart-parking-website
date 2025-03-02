@@ -13,13 +13,13 @@ function registerUser() {
   animateButton(button);
 
   // Create user with email and password
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+  auth.createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const userId = userCredential.user.uid;
       console.log("User created with ID:", userId);
 
       // Save user data to Firebase Realtime Database
-      firebase.database().ref('users/' + userId).set({
+      database.ref('users/' + userId).set({
         carNumber: carNumber,
         ownerName: ownerName,
         balance: balance
@@ -46,13 +46,7 @@ function registerUser() {
 
 // Add money to user's balance
 function addMoney() {
-  const userId = firebase.auth().currentUser?.uid;
-
-  if (!userId) {
-    document.getElementById('balanceMessage').innerText = "User not logged in.";
-    return;
-  }
-
+  const userId = auth.currentUser.uid;
   const amount = parseFloat(document.getElementById('addBalance').value);
 
   if (isNaN(amount)) {
@@ -65,14 +59,14 @@ function addMoney() {
   animateButton(button);
 
   // Get current balance
-  firebase.database().ref('users/' + userId).once('value')
+  database.ref('users/' + userId).once('value')
     .then((snapshot) => {
       const userData = snapshot.val();
       const currentBalance = parseFloat(userData.balance);
       const newBalance = currentBalance + amount;
 
       // Update balance in Firebase
-      firebase.database().ref('users/' + userId).update({ balance: newBalance })
+      database.ref('users/' + userId).update({ balance: newBalance })
         .then(() => {
           document.getElementById('currentBalance').innerText = newBalance;
           document.getElementById('balanceMessage').innerText = `Added ${amount}. New balance: ${newBalance}`;
